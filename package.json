@@ -30,7 +30,6 @@
     "test": "test"
   },
   "dependencies": {
-    "core-js": "^3.3.2",
     "precise-now": "^0.1.2"
   },
   "devDependencies": {
