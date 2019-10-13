@@ -52,7 +52,6 @@ const isTimeResolution = function(resolution, times) {
 // Available time resolutions from 50ms, 10ms, 5ms, ... to 1ns.
 // In nanoseconds.
 const getPossibleResolutions = function() {
-  // eslint-disable-next-line unicorn/prefer-flat-map
   return [].concat(
     ...Array.from({ length: MAX_RESOLUTION_EXPONENT }, getExponent).map(
       getPossibleResolution,
