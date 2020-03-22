@@ -3,9 +3,9 @@ import now from 'precise-now'
 // Retrieve system's time resolution in nanoseconds.
 // If the resolution is <1ns, returns 1ns.
 // Time resolution depends on a combination of hardware and software factors.
-const timeResolution = function() {
+const timeResolution = function () {
   const times = getTimes(REPEAT)
-  return POSSIBLE_RESOLUTIONS.find(resolution =>
+  return POSSIBLE_RESOLUTIONS.find((resolution) =>
     isTimeResolution(resolution, times),
   )
 }
@@ -22,7 +22,7 @@ const timeResolution = function() {
 // We must use imperative code because the loop size is unknown.
 /* eslint-disable fp/no-let, fp/no-loops, fp/no-mutation, fp/no-mutating-methods,
 max-depth */
-const getTimes = function(length) {
+const getTimes = function (length) {
   const times = []
   let lastTime = 0
 
@@ -45,13 +45,13 @@ max-depth */
 const REPEAT = 1e2
 
 // Check among all `now()` if they fit a specific time resolution
-const isTimeResolution = function(resolution, times) {
-  return times.every(time => time % resolution === 0)
+const isTimeResolution = function (resolution, times) {
+  return times.every((time) => time % resolution === 0)
 }
 
 // Available time resolutions from 50ms, 10ms, 5ms, ... to 1ns.
 // In nanoseconds.
-const getPossibleResolutions = function() {
+const getPossibleResolutions = function () {
   return [].concat(
     ...Array.from({ length: MAX_RESOLUTION_EXPONENT }, getExponent).map(
       getPossibleResolution,
@@ -62,11 +62,11 @@ const getPossibleResolutions = function() {
 // 8 digits after nanoseconds, i.e. 99ms-10ms
 const MAX_RESOLUTION_EXPONENT = 8
 
-const getExponent = function(value, index) {
+const getExponent = function (value, index) {
   return MAX_RESOLUTION_EXPONENT - index - 1
 }
 
-const getPossibleResolution = function(exponent) {
+const getPossibleResolution = function (exponent) {
   const scale = 10 ** exponent
   // eslint-disable-next-line no-magic-numbers
   return [5 * scale, scale]
