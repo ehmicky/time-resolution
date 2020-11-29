@@ -14,28 +14,25 @@ const isTimeResolution = function (resolution, times) {
   return times.every((time) => time % resolution === 0)
 }
 
-// Available time resolutions from 50ms, 10ms, 5ms, ... to 1ns.
+// Available time resolutions: 5s, 1s, 500ms, ..., 5ns, 1ns.
 // In nanoseconds.
 const getPossibleResolutions = function () {
-  return [].concat(
-    ...Array.from({ length: MAX_RESOLUTION_EXPONENT }, getExponent).map(
-      getPossibleResolution,
-    ),
-  )
+  // eslint-disable-next-line fp/no-mutating-methods
+  return []
+    .concat(
+      ...Array.from({ length: MAX_RESOLUTION_EXPONENT }, getPossibleResolution),
+    )
+    .reverse()
 }
 
-// 8 digits after nanoseconds, i.e. 99ms-10ms
-const MAX_RESOLUTION_EXPONENT = 8
-
-const getExponent = function (value, index) {
-  return MAX_RESOLUTION_EXPONENT - index - 1
-}
-
-const getPossibleResolution = function (exponent) {
-  const scale = 10 ** exponent
+const getPossibleResolution = function (value, index) {
+  const scale = 10 ** index
   // eslint-disable-next-line no-magic-numbers
-  return [5 * scale, scale]
+  return [scale, 5 * scale]
 }
+
+// 10 digits after nanoseconds, i.e. 5s and 1s
+const MAX_RESOLUTION_EXPONENT = 10
 
 const POSSIBLE_RESOLUTIONS = getPossibleResolutions()
 
