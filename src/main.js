@@ -15,7 +15,7 @@ const timeResolution = function (times = getDefaultTimes()) {
 }
 
 const shouldUseDefault = function (times) {
-  return times.length === 0 || [...new Set(times)].length === 1
+  return times.length === 0
 }
 
 // Check among all times if they fit a specific time resolution
