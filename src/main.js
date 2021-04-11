@@ -37,7 +37,7 @@ const isTimeResolution = function (resolution, times) {
 // After checking many times, the probability of error are so small
 // (8e-31 to 1e-70) that it is not worth not continuing.
 // This is much faster when the `times` array is very big.
-const MAX_TIMES = 100
+const MAX_TIMES = 1e2
 
 const POSSIBLE_RESOLUTIONS = getPossibleResolutions()
 
