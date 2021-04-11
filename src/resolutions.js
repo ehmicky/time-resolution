@@ -1,6 +1,7 @@
 // Available time resolutions: 5s, 1s, 500ms, ..., 5ns, 1ns.
 // In nanoseconds.
 export const getPossibleResolutions = function () {
+  // TODO: replace with `flat()` when dropping support for Node 10
   // eslint-disable-next-line fp/no-mutating-methods
   return []
     .concat(
