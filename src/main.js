@@ -46,22 +46,24 @@ const DEFAULT_MIN_RESOLUTION = 1
 // resolution
 //  - Those are ignored
 //  - However, if there are only `0` times, we default to the minimum resolution
+// We search in reverse order since this is more efficient is the array is
+// sorted from lowest to highest number:
+//  - This would ensure `0` are at the end
+//  - Lower numbers are less likely to trigger the resolution modulo
 // eslint-disable-next-line complexity
 const isTimeResolution = function (resolution, times) {
   // eslint-disable-next-line fp/no-let
   let count = 0
+  const { length } = times
 
-  // eslint-disable-next-line fp/no-loops
-  for (const time of times) {
+  // eslint-disable-next-line fp/no-loops, fp/no-let, fp/no-mutation
+  for (let index = length - 1; index >= 0 && count < MAX_TIMES; index -= 1) {
+    const time = times[index]
+
     // eslint-disable-next-line max-depth
     if (time === 0) {
       // eslint-disable-next-line no-continue
       continue
-    }
-
-    // eslint-disable-next-line max-depth
-    if (count >= MAX_TIMES) {
-      break
     }
 
     // eslint-disable-next-line fp/no-mutation
