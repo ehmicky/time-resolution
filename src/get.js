@@ -10,8 +10,6 @@ import now from 'precise-now'
 //  - if resolution is *5ns, `1 / 2 ** length`
 // So with `length` `100`, we get this error only once every `1e30` calls.
 // We must use imperative code because the loop size is unknown.
-/* eslint-disable fp/no-let, fp/no-loops, fp/no-mutation, fp/no-mutating-methods,
-max-depth */
 export const getDefaultTimes = function () {
   return getTimes(DEFAULT_REPEAT)
 }
@@ -20,20 +18,23 @@ const DEFAULT_REPEAT = 1e2
 
 const getTimes = function (length) {
   const times = []
+  // eslint-disable-next-line fp/no-let
   let lastTime = 0
 
+  // eslint-disable-next-line fp/no-loops
   while (times.length < length) {
     const time = now()
 
     // If the resolution is very low, we need to perform `now()` several times
     // until the result changes
+    // eslint-disable-next-line max-depth
     if (time !== lastTime) {
+      // eslint-disable-next-line fp/no-mutation
       lastTime = time
+      // eslint-disable-next-line fp/no-mutating-methods
       times.push(time)
     }
   }
 
   return times
 }
-/* eslint-enable fp/no-let, fp/no-loops, fp/no-mutation, fp/no-mutating-methods,
-max-depth */
