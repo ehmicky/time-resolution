@@ -1,5 +1,4 @@
 import { getDefaultTimes } from './get.js'
-import { getPossibleResolutions } from './resolutions.js'
 
 // Retrieve system's time resolution in nanoseconds.
 // If the resolution is <1ns, returns 1ns.
@@ -39,10 +38,33 @@ const isTimeResolution = function (resolution, times) {
 // This is much faster when the `times` array is very big.
 const MAX_TIMES = 1e2
 
-const POSSIBLE_RESOLUTIONS = getPossibleResolutions()
-
-const DEFAULT_MIN_RESOLUTION =
-  POSSIBLE_RESOLUTIONS[POSSIBLE_RESOLUTIONS.length - 1]
+// Available time resolutions: 5s, 1s, 500ms, ..., 5ns, 1ns.
+// In nanoseconds.
+/* eslint-disable no-magic-numbers */
+const POSSIBLE_RESOLUTIONS = [
+  5e9,
+  1e9,
+  5e8,
+  1e8,
+  5e7,
+  1e7,
+  5e6,
+  1e6,
+  5e5,
+  1e5,
+  5e4,
+  1e4,
+  5e3,
+  1e3,
+  5e2,
+  1e2,
+  5e1,
+  1e1,
+  5,
+  1,
+]
+const DEFAULT_MIN_RESOLUTION = 1
+/* eslint-enable no-magic-numbers */
 
 // We do not use `export default` because Babel transpiles it in a way that
 // requires CommonJS users to `require(...).default` instead of `require(...)`.
