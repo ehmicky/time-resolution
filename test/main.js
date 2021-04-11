@@ -15,6 +15,12 @@ test('Use a default resolution on empty arrays', (t) => {
   t.is(resolution, 1)
 })
 
+test('Default to the minimum resolution', (t) => {
+  const resolution = timeResolution([1])
+
+  t.is(resolution, 1)
+})
+
 test('Can pass an array of times', (t) => {
   const resolution = timeResolution([50, 150])
 
@@ -26,4 +32,12 @@ test('Can pass a single time', (t) => {
 
   t.is(resolution, 50)
 })
+
+test('Can pass a big array of times', (t) => {
+  const times = Array.from({ length: 1e6 }, () => 50)
+  const resolution = timeResolution(times)
+
+  t.is(resolution, 50)
+})
+
 /* eslint-enable no-magic-numbers */

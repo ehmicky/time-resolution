@@ -18,10 +18,26 @@ const shouldUseDefault = function (times) {
   return times.length === 0
 }
 
-// Check among all times if they fit a specific time resolution
+// Check among all times if they fit a specific time resolution.
+// We use imperative and avoid cloning `times` for performance.
 const isTimeResolution = function (resolution, times) {
-  return times.every((time) => time % resolution === 0)
+  const maxTimes = Math.min(MAX_TIMES, times.length)
+
+  // eslint-disable-next-line fp/no-let, fp/no-mutation, fp/no-loops
+  for (let index = 0; index < maxTimes; index += 1) {
+    // eslint-disable-next-line max-depth
+    if (times[index] % resolution !== 0) {
+      return false
+    }
+  }
+
+  return true
 }
+
+// After checking many times, the probability of error are so small
+// (8e-31 to 1e-70) that it is not worth not continuing.
+// This is much faster when the `times` array is very big.
+const MAX_TIMES = 100
 
 const POSSIBLE_RESOLUTIONS = getPossibleResolutions()
 
