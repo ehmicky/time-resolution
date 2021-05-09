@@ -16,26 +16,8 @@ const timeResolution = function (times = getDefaultTimes()) {
 // In nanoseconds.
 /* eslint-disable no-magic-numbers */
 const POSSIBLE_RESOLUTIONS = [
-  5e9,
-  1e9,
-  5e8,
-  1e8,
-  5e7,
-  1e7,
-  5e6,
-  1e6,
-  5e5,
-  1e5,
-  5e4,
-  1e4,
-  5e3,
-  1e3,
-  5e2,
-  1e2,
-  5e1,
-  1e1,
-  5,
-  1,
+  5e9, 1e9, 5e8, 1e8, 5e7, 1e7, 5e6, 1e6, 5e5, 1e5, 5e4, 1e4, 5e3, 1e3, 5e2,
+  1e2, 5e1, 1e1, 5, 1,
 ]
 const DEFAULT_MIN_RESOLUTION = 1
 /* eslint-enable no-magic-numbers */
