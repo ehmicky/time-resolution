@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers */
 import test from 'ava'
-
-import timeResolution from '../src/main.js'
+// eslint-disable-next-line import/no-unresolved, node/no-missing-import
+import timeResolution from 'time-resolution'
 
 test('Use the current resolution by default', (t) => {
   const resolution = timeResolution()
