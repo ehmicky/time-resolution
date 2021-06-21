@@ -3,7 +3,6 @@ import { getDefaultTimes } from './default.js'
 // Retrieve system's time resolution in nanoseconds.
 // If the resolution is <1ns, returns 1ns.
 // Time resolution depends on a combination of hardware and software factors.
-// eslint-disable-next-line import/no-default-export
 export default function timeResolution(times = getDefaultTimes()) {
   const currentResolution = POSSIBLE_RESOLUTIONS.find((resolution) =>
     isTimeResolution(resolution, times),
