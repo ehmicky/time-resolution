@@ -1,5 +1,4 @@
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/time-resolution.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/time-resolution)
-[![Build](https://github.com/ehmicky/time-resolution/workflows/Build/badge.svg)](https://github.com/ehmicky/time-resolution/actions)
 [![Node](https://img.shields.io/node/v/time-resolution.svg?logo=node.js)](https://www.npmjs.com/package/time-resolution)
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
