@@ -32,7 +32,7 @@
     "precise-now": "^0.4.1"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^1.0.79",
+    "@ehmicky/dev-tasks": "^1.0.80",
     "tsd": "^0.22.0"
   },
   "engines": {
