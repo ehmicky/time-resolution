@@ -1,3 +1,9 @@
+# 0.6.1
+
+## Features
+
+- Add TypeScript types
+
 # 0.6.0
 
 ## Breaking changes
