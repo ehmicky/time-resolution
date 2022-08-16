@@ -1,3 +1,9 @@
+# 0.6.2
+
+## Features
+
+- Reduce npm package size
+
 # 0.6.1
 
 ## Features
