@@ -1,3 +1,9 @@
+# 0.6.4
+
+## Bug fixes
+
+- Fix `package.json`
+
 # 0.6.3
 
 - Switch to MIT license

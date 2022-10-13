@@ -15,7 +15,7 @@
   "keywords": [
     "typescript"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://www.github.com/ehmicky/time-resolution",
   "repository": "ehmicky/time-resolution",
   "bugs": {
