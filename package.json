@@ -31,7 +31,7 @@
     "test": "test"
   },
   "dependencies": {
-    "precise-now": "^0.4.5"
+    "precise-now": "^0.4.6"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^1.0.102"
