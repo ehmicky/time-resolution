@@ -1,6 +1,6 @@
 import { expectType, expectError } from 'tsd'
 
-import timeResolution from './main.js'
+import timeResolution from 'time-resolution'
 
 expectType<number>(timeResolution())
 timeResolution([])
