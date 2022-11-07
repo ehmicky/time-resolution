@@ -1,3 +1,9 @@
+# 0.6.5
+
+## Features
+
+- Add browser support
+
 # 0.6.4
 
 ## Bug fixes
