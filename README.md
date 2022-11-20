@@ -6,7 +6,7 @@
 [![Mastodon](https://img.shields.io/badge/-Mastodon-808080.svg?logo=mastodon&colorA=404040&logoColor=9590F9)](https://fosstodon.org/@ehmicky)
 [![Medium](https://img.shields.io/badge/-Medium-808080.svg?logo=medium&colorA=404040)](https://medium.com/@ehmicky)
 
-Retrieve the process's time resolution.
+Find the process's time resolution.
 
 The time resolution is a combination of both software and hardware factors. This
 finds it by creating many timestamps in a row and computing it their common
