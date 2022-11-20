@@ -28,7 +28,7 @@ const DEFAULT_MIN_RESOLUTION = 1
 // resolution
 //  - Those are ignored
 //  - However, if there are only `0` times, we default to the minimum resolution
-// We search in reverse order since this is more efficient is the array is
+// We search in reverse order since this is more efficient if the array is
 // sorted from lowest to highest number:
 //  - This would ensure `0` are at the end
 //  - Lower numbers are less likely to trigger the resolution modulo
