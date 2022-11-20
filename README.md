@@ -8,8 +8,8 @@
 
 Find the process's time resolution.
 
-The time resolution is a combination of both software and hardware factors. This
-finds it by creating many timestamps in a row and computing it their common
+The time resolution is a combination of multiple software and hardware factors.
+This finds it by creating many timestamps in a row and computing their common
 denominator.
 
 # Example

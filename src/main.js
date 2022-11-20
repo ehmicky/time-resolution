@@ -3,6 +3,11 @@ import { getDefaultTimes } from './default.js'
 // Retrieve system's time resolution in nanoseconds.
 // If the resolution is <1ns, returns 1ns.
 // Time resolution depends on a combination of hardware and software factors.
+// An array of `times` can be passed
+//  - This is only necessary when computing the time resolution of another
+//    process that is either on a different machine or using a different
+//    runtime
+//  - Since this is an edge case, this is left undocumented
 export default function timeResolution(times = getDefaultTimes()) {
   const currentResolution = POSSIBLE_RESOLUTIONS.find((resolution) =>
     isTimeResolution(resolution, times),
