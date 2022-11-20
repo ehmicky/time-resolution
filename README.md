@@ -6,9 +6,42 @@
 [![Mastodon](https://img.shields.io/badge/-Mastodon-808080.svg?logo=mastodon&colorA=404040&logoColor=9590F9)](https://fosstodon.org/@ehmicky)
 [![Medium](https://img.shields.io/badge/-Medium-808080.svg?logo=medium&colorA=404040)](https://medium.com/@ehmicky)
 
-Retrieve the system's time resolution.
+Retrieve the process's time resolution.
 
-Work in progress!
+The time resolution is a combination of both software and hardware factors. This
+finds it by creating many timestamps in a row and computing it their common
+denominator.
+
+# Example
+
+```js
+import timeResolution from 'time-resolution'
+
+const resolution = timeResolution()
+```
+
+# Install
+
+```bash
+npm install time-resolution
+```
+
+This package works in both Node.js >=14.18.0 and
+[browsers](https://raw.githubusercontent.com/ehmicky/dev-tasks/main/src/tasks/build/browserslist).
+It is an ES module and must be loaded using
+[an `import` or `import()` statement](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c),
+not `require()`.
+
+# API
+
+## timeResolution()
+
+_Return value_: `number`
+
+# Related projects
+
+- [`precise-now`](https://github.com/ehmicky/precise-now): Like
+  `performance.now()` but in nanoseconds
 
 # Support
 
