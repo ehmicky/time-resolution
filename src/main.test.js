@@ -1,4 +1,5 @@
 import test from 'ava'
+
 import timeResolution from 'time-resolution'
 
 const MIN_RESOLUTION = 1
