@@ -1,6 +1,7 @@
-import { expectType, expectError } from 'tsd'
+import { expectType } from 'tsd'
 
 import timeResolution from 'time-resolution'
 
 expectType<number>(timeResolution())
-expectError(timeResolution(1))
+// @ts-expect-error
+timeResolution(1)
