@@ -38,6 +38,8 @@ not `require()`.
 
 _Return value_: `number`
 
+Returns the system's time resolution, in nanoseconds.
+
 # Related projects
 
 - [`precise-now`](https://github.com/ehmicky/precise-now): Like

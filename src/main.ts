@@ -1,7 +1,7 @@
 import { getDefaultTimes } from './default.js'
 
 /**
- * Retrieve the system's time resolution.
+ * Returns the system's time resolution, in nanoseconds.
  *
  * @example
  * ```js
