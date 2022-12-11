@@ -46,7 +46,7 @@ test('Stops after checking a specific amount of times', (t) => {
   t.is(
     timeResolution([
       MIN_RESOLUTION,
-      ...new Array(MAX_TIMES).fill(TEST_RESOLUTION),
+      ...Array.from({ length: MAX_TIMES }, () => TEST_RESOLUTION),
     ]),
     TEST_RESOLUTION,
   )
@@ -55,7 +55,7 @@ test('Stops after checking a specific amount of times', (t) => {
 test('Search in reverse order', (t) => {
   t.is(
     timeResolution([
-      ...new Array(MAX_TIMES).fill(TEST_RESOLUTION),
+      ...Array.from({ length: MAX_TIMES }, () => TEST_RESOLUTION),
       MIN_RESOLUTION,
     ]),
     MIN_RESOLUTION,
@@ -64,7 +64,10 @@ test('Search in reverse order', (t) => {
 
 test('Ignore 0 when checking a specific amount of times', (t) => {
   t.is(
-    timeResolution([MIN_RESOLUTION, ...new Array(MAX_TIMES).fill(0)]),
+    timeResolution([
+      MIN_RESOLUTION,
+      ...Array.from({ length: MAX_TIMES }, () => 0),
+    ]),
     MIN_RESOLUTION,
   )
 })

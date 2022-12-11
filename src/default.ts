@@ -14,7 +14,7 @@ export const getDefaultTimes = () => getTimes(DEFAULT_REPEAT)
 
 const DEFAULT_REPEAT = 1e2
 
-const getTimes = (length) => {
+const getTimes = (length: number) => {
   const times = []
   // eslint-disable-next-line fp/no-let
   let lastTime = 0

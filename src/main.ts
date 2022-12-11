@@ -1,33 +1,36 @@
 import { getDefaultTimes } from './default.js'
 
-// Retrieve system's time resolution in nanoseconds.
+/**
+ * Retrieve the system's time resolution.
+ *
+ * @example
+ * ```js
+ * const resolution = timeResolution()
+ * ```
+ */
 // If the resolution is <1ns, returns 1ns.
 // Time resolution depends on a combination of hardware and software factors.
 // An array of `times` can be passed
 //  - This is only necessary when computing the time resolution of another
 //    process that is either on a different machine or using a different
 //    runtime
-//  - Since this is an edge case, this is left undocumented
-const timeResolution = (times = getDefaultTimes()) => {
-  const currentResolution = POSSIBLE_RESOLUTIONS.find((resolution) =>
+//  - Since this is an edge case, this is left undocumented, except in types
+const timeResolution = (times: readonly number[] = getDefaultTimes()) =>
+  POSSIBLE_RESOLUTIONS.find((resolution) =>
     isTimeResolution(resolution, times),
-  )
-  return currentResolution === undefined
-    ? DEFAULT_MIN_RESOLUTION
-    : currentResolution
-}
+  ) ?? DEFAULT_MIN_RESOLUTION
 
 export default timeResolution
 
 // Available time resolutions: 5s, 1s, 500ms, ..., 5ns, 1ns.
 // In nanoseconds.
-/* eslint-disable no-magic-numbers */
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 const POSSIBLE_RESOLUTIONS = [
   5e9, 1e9, 5e8, 1e8, 5e7, 1e7, 5e6, 1e6, 5e5, 1e5, 5e4, 1e4, 5e3, 1e3, 5e2,
   1e2, 5e1, 1e1, 5, 1,
 ]
+/* eslint-enable @typescript-eslint/no-magic-numbers */
 const DEFAULT_MIN_RESOLUTION = 1
-/* eslint-enable no-magic-numbers */
 
 // Check among all times if they fit a specific time resolution.
 // We use imperative and avoid cloning `times` for performance.
@@ -40,14 +43,14 @@ const DEFAULT_MIN_RESOLUTION = 1
 //  - This would ensure `0` are at the end
 //  - Lower numbers are less likely to trigger the resolution modulo
 // eslint-disable-next-line complexity
-const isTimeResolution = (resolution, times) => {
+const isTimeResolution = (resolution: number, times: readonly number[]) => {
   // eslint-disable-next-line fp/no-let
   let count = 0
   const { length } = times
 
   // eslint-disable-next-line fp/no-loops, fp/no-let, fp/no-mutation
   for (let index = length - 1; index >= 0 && count < MAX_TIMES; index -= 1) {
-    const time = times[index]
+    const time = times[index]!
 
     // eslint-disable-next-line max-depth
     if (time === 0) {
