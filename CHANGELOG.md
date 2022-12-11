@@ -1,3 +1,9 @@
+# 1.1.0
+
+## Features
+
+- Migrate to TypeScript
+
 # 1.0.0
 
 First stable release. No breaking changes.
