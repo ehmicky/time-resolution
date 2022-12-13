@@ -10,13 +10,11 @@ import now from 'precise-now'
 //  - if resolution is *5ns, `1 / 2 ** length`
 // So with `length` `100`, we get this error only once every `1e30` calls.
 // We must use imperative code because the loop size is unknown.
-export const getDefaultTimes = function () {
-  return getTimes(DEFAULT_REPEAT)
-}
+export const getDefaultTimes = () => getTimes(DEFAULT_REPEAT)
 
 const DEFAULT_REPEAT = 1e2
 
-const getTimes = function (length) {
+const getTimes = (length) => {
   const times = []
   // eslint-disable-next-line fp/no-let
   let lastTime = 0

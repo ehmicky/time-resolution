@@ -8,7 +8,7 @@ import { getDefaultTimes } from './default.js'
 //    process that is either on a different machine or using a different
 //    runtime
 //  - Since this is an edge case, this is left undocumented
-export default function timeResolution(times = getDefaultTimes()) {
+const timeResolution = (times = getDefaultTimes()) => {
   const currentResolution = POSSIBLE_RESOLUTIONS.find((resolution) =>
     isTimeResolution(resolution, times),
   )
@@ -16,6 +16,8 @@ export default function timeResolution(times = getDefaultTimes()) {
     ? DEFAULT_MIN_RESOLUTION
     : currentResolution
 }
+
+export default timeResolution
 
 // Available time resolutions: 5s, 1s, 500ms, ..., 5ns, 1ns.
 // In nanoseconds.
@@ -38,7 +40,7 @@ const DEFAULT_MIN_RESOLUTION = 1
 //  - This would ensure `0` are at the end
 //  - Lower numbers are less likely to trigger the resolution modulo
 // eslint-disable-next-line complexity
-const isTimeResolution = function (resolution, times) {
+const isTimeResolution = (resolution, times) => {
   // eslint-disable-next-line fp/no-let
   let count = 0
   const { length } = times
