@@ -1,7 +1,6 @@
 import timeResolution from 'time-resolution'
 import { expectType } from 'tsd'
 
-
 expectType<number>(timeResolution())
 // @ts-expect-error
 timeResolution(1)
