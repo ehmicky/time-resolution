@@ -54,7 +54,7 @@
     "lib": "src"
   },
   "dependencies": {
-    "precise-now": "^2.0.0"
+    "precise-now": "^3.0.0"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^2.0.102"
