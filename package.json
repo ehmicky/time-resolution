@@ -57,7 +57,7 @@
     "precise-now": "^2.0.0"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^2.0.100"
+    "@ehmicky/dev-tasks": "^2.0.101"
   },
   "engines": {
     "node": ">=18.18.0"
