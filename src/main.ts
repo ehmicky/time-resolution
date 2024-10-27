@@ -42,7 +42,6 @@ const DEFAULT_MIN_RESOLUTION = 1
 // sorted from lowest to highest number:
 //  - This would ensure `0` are at the end
 //  - Lower numbers are less likely to trigger the resolution modulo
-// eslint-disable-next-line complexity
 const isTimeResolution = (resolution: number, times: readonly number[]) => {
   // eslint-disable-next-line fp/no-let
   let count = 0

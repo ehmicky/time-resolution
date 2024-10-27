@@ -29,7 +29,6 @@ const getTimes = (length: number) => {
     if (time !== lastTime) {
       // eslint-disable-next-line fp/no-mutation
       lastTime = time
-      // eslint-disable-next-line fp/no-mutating-methods
       times.push(time)
     }
   }
