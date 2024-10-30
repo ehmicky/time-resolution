@@ -57,7 +57,8 @@
     "precise-now": "^3.0.0"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^3.0.19"
+    "@ehmicky/dev-tasks": "^3.0.19",
+    "@ehmicky/eslint-config": "^20.0.0"
   },
   "engines": {
     "node": ">=18.18.0"
